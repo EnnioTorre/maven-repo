@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>SimulatorConnectorAM</groupId>
+  <artifactId>SimulatorConnectorAM</artifactId>
+  <versioning>
+    <release>SNAPSHOT-1.0</release>
+    <versions>
+      <version>SNAPSHOT-1.0</version>
+    </versions>
+    <lastUpdated>20131206105422</lastUpdated>
+  </versioning>
+</metadata>

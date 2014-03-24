@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>eu.cloudtm</groupId>
+    <artifactId>autonomicManager</artifactId>
+    <packaging>jar</packaging>
+    <version>1.0-SNAPSHOT</version>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.glassfish.jersey</groupId>
+                <artifactId>jersey-bom</artifactId>
+                <version>${jersey.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>stoyan</groupId>
+            <artifactId>dap</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.jcraft</groupId>
+            <artifactId>jsch</artifactId>
+            <version>0.1.50</version>
+        </dependency>
+
+        <dependency>
+            <groupId>eu.cloudtm</groupId>
+            <artifactId>WPMConnector</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.2.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>1.1.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.glassfish.jersey.containers</groupId>
+            <artifactId>jersey-container-grizzly2-http</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.glassfish.jersey.core</groupId>
+            <artifactId>jersey-client</artifactId>
+            <!-- <scope>test</scope> -->
+        </dependency>
+
+        <dependency>
+            <groupId>eu.cloudtm</groupId>
+            <artifactId>infinispan-actuator</artifactId>
+            <version>1.0.Alpha2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-configuration</groupId>
+            <artifactId>commons-configuration</artifactId>
+            <version>1.9</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.deltacloud.client</groupId>
+            <artifactId>client</artifactId>
+            <version>0.2.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>net.sourceforge.collections</groupId>
+            <artifactId>collections-generic</artifactId>
+            <version>4.01</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.2.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>eu.cloudtm</groupId>
+            <artifactId>CsvInputOracle</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+
+        <!--<dependency>-->
+        <!--<groupId>com.github.goldin</groupId>-->
+        <!--<artifactId>copy-maven-plugin</artifactId>-->
+        <!--<version>0.3-SNAPSHOT</version>-->
+        <!--</dependency>-->
+
+    </dependencies>
+
+
+    <build>
+
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <excludes>
+                    <exclude>*</exclude>
+                </excludes>
+            </resource>
+
+        </resources>
+
+
+        <plugins>
+
+            <!--<plugin>-->
+            <!--<artifactId>maven-antrun-plugin</artifactId>-->
+            <!--<executions>-->
+            <!--<execution>-->
+            <!--<phase>install</phase>-->
+            <!--<configuration>-->
+            <!--<tasks>-->
+
+            <!--<copy todir="${project.build.directory}">-->
+            <!--<fileset dir="src/main/resources">-->
+            <!--<include name="**/*" />-->
+            <!--</fileset>-->
+            <!--</copy>-->
+
+            <!--</tasks>-->
+            <!--</configuration>-->
+            <!--<goals>-->
+            <!--<goal>run</goal>-->
+            <!--</goals>-->
+            <!--</execution>-->
+            <!--</executions>-->
+            <!--</plugin>-->
+
+            <!--<plugin>-->
+            <!--<groupId>org.apache.maven.plugins</groupId>-->
+            <!--<artifactId>maven-compiler-plugin</artifactId>-->
+            <!--<inherited>true</inherited>-->
+            <!--<configuration>-->
+            <!--<source>1.6</source>-->
+            <!--<target>1.6</target>-->
+            <!--</configuration>-->
+            <!--</plugin>-->
+
+            <!--<plugin>-->
+            <!--<groupId>org.codehaus.mojo</groupId>-->
+            <!--<artifactId>exec-maven-plugin</artifactId>-->
+            <!--<version>1.1</version>-->
+            <!--<executions>-->
+            <!--<execution>-->
+            <!--<goals>-->
+            <!--<goal>java</goal>-->
+            <!--</goals>-->
+            <!--</execution>-->
+            <!--</executions>-->
+            <!--<configuration>-->
+            <!--<mainClass>eu.cloudtm.autonomicManager.Main</mainClass>-->
+            <!--</configuration>-->
+            <!--</plugin>-->
+
+            <!--<plugin>-->
+            <!--&lt;!&ndash; Build an executable JAR &ndash;&gt;-->
+            <!--<groupId>org.apache.maven.plugins</groupId>-->
+            <!--<artifactId>maven-jar-plugin</artifactId>-->
+            <!--<configuration>-->
+            <!--<archive>-->
+            <!--<manifest>-->
+            <!--<addClasspath>true</addClasspath>-->
+            <!--<classpathPrefix>lib/</classpathPrefix>-->
+            <!--<mainClass>eu.cloudtm.autonomicManager.Main</mainClass>-->
+            <!--</manifest>-->
+            <!--</archive>-->
+            <!--</configuration>-->
+            <!--</plugin>-->
+
+            <!--<plugin>-->
+            <!--<artifactId>maven-assembly-plugin</artifactId>-->
+            <!--<configuration>-->
+            <!--<archive>-->
+            <!--<manifest>-->
+            <!--<mainClass>eu.cloudtm.autonomicManager.Main</mainClass>-->
+            <!--</manifest>-->
+            <!--</archive>-->
+            <!--<descriptorRefs>-->
+            <!--<descriptorRef>jar-with-dependencies</descriptorRef>-->
+            <!--</descriptorRefs>-->
+            <!--</configuration>-->
+            <!--</plugin>-->
+
+
+            <!--<plugin>-->
+            <!--<artifactId>maven-dependency-plugin</artifactId>-->
+            <!--<executions>-->
+            <!--<execution>-->
+            <!--<phase>install</phase>-->
+            <!--<goals>-->
+            <!--<goal>copy-dependencies</goal>-->
+            <!--</goals>-->
+            <!--<configuration>-->
+            <!--<outputDirectory>${project.build.directory}/lib</outputDirectory>-->
+            <!--</configuration>-->
+            <!--</execution>-->
+            <!--</executions>-->
+            <!--</plugin>-->
+
+
+            <!--<plugin>-->
+            <!--<artifactId>maven-resources-plugin</artifactId>-->
+            <!--<version>2.6</version>-->
+            <!--<executions>-->
+            <!--<execution>-->
+            <!--<id>copy-resources</id>-->
+            <!--&lt;!&ndash; here the phase you need &ndash;&gt;-->
+            <!--<phase>install</phase>-->
+            <!--<goals>-->
+            <!--<goal>copy-resources</goal>-->
+            <!--</goals>-->
+            <!--<configuration>-->
+            <!--<outputDirectory>${project.build.directory}/conf</outputDirectory>-->
+            <!--<resources>-->
+            <!--<resource>-->
+            <!--<directory>src/main/resources/conf</directory>-->
+            <!--<filtering>true</filtering>-->
+            <!--</resource>-->
+            <!--</resources>-->
+            <!--</configuration>-->
+            <!--</execution>-->
+            <!--<execution>-->
+            <!--<id>copy-lib-resources</id>-->
+            <!--&lt;!&ndash; here the phase you need &ndash;&gt;-->
+            <!--<phase>install</phase>-->
+            <!--<goals>-->
+            <!--<goal>copy-resources</goal>-->
+            <!--</goals>-->
+            <!--<configuration>-->
+            <!--<outputDirectory>${project.build.directory}/lib</outputDirectory>-->
+            <!--<resources>-->
+            <!--<resource>-->
+            <!--<directory>src/main/resources/lib</directory>-->
+            <!--<filtering>true</filtering>-->
+            <!--</resource>-->
+            <!--</resources>-->
+            <!--<nonFilteredFileExtensions>-->
+            <!--<nonFilteredFileExtension>so</nonFilteredFileExtension>-->
+            <!--</nonFilteredFileExtensions>-->
+            <!--</configuration>-->
+            <!--</execution>-->
+            <!--</executions>-->
+            <!--</plugin>-->
+
+
+            <plugin>
+                <groupId>com.github.goldin</groupId>
+                <artifactId>copy-maven-plugin</artifactId>
+                <version>0.3-SNAPSHOT</version>
+                <executions>
+                    <execution>
+                        <id>create-archive</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                        <configuration>
+
+                            <resources>
+                                <!-- ~~~~~~~~~~~~~~ -->
+                                <!-- Copy resources -->
+                                <!-- ~~~~~~~~~~~~~~ -->
+                                <resource>
+                                    <targetPath>${project.build.directory}/AdaptationManager</targetPath>
+                                    <directory>${project.basedir}/src/main/resources</directory>
+                                    <preservePath>true</preservePath>
+                                </resource>
+                                <resource>
+                                    <targetPath>${project.build.directory}/AdaptationManager/lib</targetPath>
+                                    <file>${project.basedir}/src/main/resources/lib/DAGSwithCubist.zip</file>
+                                    <unpack>true</unpack>
+                                    <chmod>755</chmod>
+                                </resource>
+                                <resource>
+                                    <targetPath>${project.build.directory}/AdaptationManager/lib</targetPath>
+                                    <file>${project.basedir}/src/main/resources/lib/MorphR.zip</file>
+                                    <unpack>true</unpack>
+                                    <chmod>755</chmod>
+                                </resource>
+                                <!--<resource>-->
+                                <!--<targetPath>${project.build.outputDirectory}/scripts</targetPath>-->
+                                <!--<directory>${project.basedir}/conf</directory>-->
+                                <!--<include>resources, scripts</include>-->
+                                <!--</resource>-->
+                                <!-- ~~~~~~~~~~~~~~ -->
+                                <!-- Copy directory -->
+                                <!-- ~~~~~~~~~~~~~~ -->
+                                <!--<resource>-->
+                                <!--<targetPath>${project.build.outputDirectory}/spring</targetPath>-->
+                                <!--<directory>${project.basedir}/src/main/resources/spring</directory>-->
+                                <!--</resource>-->
+                                <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+                                <!-- Copy "compile" dependencies -->
+                                <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+                                <resource>
+                                    <targetPath>${project.build.directory}/AdaptationManager/lib</targetPath>
+                                    <dependency>
+                                        <includeScope>compile</includeScope>
+                                    </dependency>
+                                </resource>
+
+                                <resource>
+                                    <targetPath>${project.build.directory}/AdaptationManager</targetPath>
+                                    <file>${project.build.directory}/${project.build.finalName}.jar</file>
+                                </resource>
+
+                                <!-- ~~~~~~~~~~~~~~~~~~~~~~~~ -->
+                                <!-- Unpack two data archives -->
+                                <!-- ~~~~~~~~~~~~~~~~~~~~~~~~ -->
+                                <!--<resource>-->
+                                <!--<targetPath>${project.build.outputDirectory}/data</targetPath>-->
+                                <!--<dependencies>-->
+                                <!--<dependency>-->
+                                <!--<groupId>someData</groupId>-->
+                                <!--<artifactId>dependencyArchive</artifactId>-->
+                                <!--</dependency>-->
+                                <!--<dependency>-->
+                                <!--<groupId>anotherData</groupId>-->
+                                <!--<artifactId>dependencyArchive</artifactId>-->
+                                <!--</dependency>-->
+                                <!--</dependencies>-->
+                                <!--<unpack>true</unpack>-->
+                                <!--</resource>-->
+                                <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+                                <!-- Create final archive and attach it as Maven artifact -->
+                                <!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+                                <resource>
+                                    <targetPath>${project.build.directory}/AdaptationManager.tar.gz</targetPath>
+                                    <directory>${project.build.directory}/AdaptationManager</directory>
+                                    <pack>true</pack>
+                                    <include>**/*.*|755</include>
+                                </resource>
+
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+
+        </plugins>
+    </build>
+
+    <properties>
+        <jersey.version>2.0</jersey.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+
+    <repositories>
+
+        <repository>
+            <id>evgenyg.artifactoryonline</id>
+            <url>http://evgenyg.artifactoryonline.com/evgenyg/repo/</url>
+        </repository>
+
+        <repository>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </snapshots>
+            <id>cloudtm-repository</id>
+            <name>Cloud-TM's Maven Repository</name>
+            <url>http://cloudtm.ist.utl.pt:8083/nexus/content/groups/public/</url>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+
+        <pluginRepository>
+            <id>evgenyg.artifactoryonline</id>
+            <url>http://evgenyg.artifactoryonline.com/evgenyg/repo/</url>
+        </pluginRepository>
+
+        <pluginRepository>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </snapshots>
+            <id>cloudtm-plugin-repository</id>
+            <name>Cloud-TM's Maven Repository</name>
+            <url>http://cloudtm.ist.utl.pt:8083/nexus/content/groups/public/</url>
+        </pluginRepository>
+
+    </pluginRepositories>
+
+    <!--TO DO MVN DEPLOY-->
+    <distributionManagement>
+        <repository>
+            <id>cloud</id>
+            <name>cloud</name>
+            <url>http://cloudtm.ist.utl.pt:8083/nexus/content/repositories/releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>cloud</id>
+            <name>cloud</name>
+            <url>http://cloudtm.ist.utl.pt:8083/nexus/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+
+</project>
