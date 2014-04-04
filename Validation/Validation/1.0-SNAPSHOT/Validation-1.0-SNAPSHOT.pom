@@ -35,8 +35,7 @@
             <version>1.0-SNAPSHOT</version>
             <type>jar</type>
         </dependency>
-
-
+       
         <dependency>
             <groupId>RadargunReportParser</groupId>
             <artifactId>RadargunReportParser</artifactId>
@@ -50,34 +49,17 @@
     <!--EXTERNAL REPO (Not in my settings.xml)-->
     <repositories>
         <repository>
-            <releases>
+            <id>github</id>
+            <name>maven-repo</name>
+            <!--url>file:///home/ennio/Public/Dropbox/Public/maven-rep/</url-->
+            <url>https://raw.github.com/EnnioTorre/maven-repo/master/</url>
+         <snapshots>
                 <enabled>true</enabled>
                 <updatePolicy>never</updatePolicy>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>never</updatePolicy>
-            </snapshots>
-            <id>cloudtm-repository</id>
-            <name>Cloud-TM's Maven Repository</name>
-            <url>http://cloudtm.ist.utl.pt:8083/nexus/content/groups/public/</url>
+         </snapshots>
         </repository>
+        
     </repositories>
-    <pluginRepositories>
-        <pluginRepository>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>never</updatePolicy>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>never</updatePolicy>
-            </snapshots>
-            <id>cloudtm-plugin-repository</id>
-            <name>Cloud-TM's Maven Repository</name>
-            <url>http://cloudtm.ist.utl.pt:8083/nexus/content/groups/public/</url>
-        </pluginRepository>
-    </pluginRepositories>
 
     <!--TO DO MVN DEPLOY-->
     <distributionManagement>
