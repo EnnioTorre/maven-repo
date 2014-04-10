@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata modelVersion="1.1.0">
+  <groupId>eu.cloudtm.batch</groupId>
+  <artifactId>BatchOracle</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <versioning>
+    <snapshot>
+      <timestamp>20140410.180037</timestamp>
+      <buildNumber>1</buildNumber>
+    </snapshot>
+    <lastUpdated>20140410180037</lastUpdated>
+    <snapshotVersions>
+      <snapshotVersion>
+        <extension>jar</extension>
+        <value>1.0-20140410.180037-1</value>
+        <updated>20140410180037</updated>
+      </snapshotVersion>
+      <snapshotVersion>
+        <extension>pom</extension>
+        <value>1.0-20140410.180037-1</value>
+        <updated>20140410180037</updated>
+      </snapshotVersion>
+    </snapshotVersions>
+  </versioning>
+</metadata>
